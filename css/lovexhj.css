@@ -1,0 +1,656 @@
+/* 萌神手写体字体 */
+@font-face {
+    font-family: lovexhj;
+    src: url("../fonts/lovexhj.ttf");
+}
+
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: lovexhj;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    /* 标题文字大小 */
+    --titleSize: 3.5rem;
+    --contextSize: 1.5rem;
+}
+
+html,
+body {
+    background: #f1f2f6;
+}
+
+#lovexhj {
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 滚动条 */
+body::-webkit-scrollbar {
+    width: 5px;
+    height: 1px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: black;
+}
+
+/* 统一过渡 */
+.loadMore,
+.lovexhj2ContentText li,
+.lovexhj3ContentBoxText,
+.lovexhj3ContentBox img,
+.lovexhj3ContentBtn {
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+
+/* 未渲染则不显示 */
+[v-cloak] {
+    display: none;
+}
+
+/* 打字光标 */
+.typed-cursor {
+    opacity: 1;
+    animation: typedjsBlink 0.7s infinite;
+    -webkit-animation: typedjsBlink 0.7s infinite;
+    animation: typedjsBlink 0.7s infinite;
+}
+
+@keyframes typedjsBlink {
+    50% {
+        opacity: 0.0;
+    }
+}
+
+@-webkit-keyframes typedjsBlink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.typed-fade-out {
+    opacity: 0;
+    transition: opacity .25s;
+    -webkit-animation: 0;
+    animation: 0;
+    -webkit-transition: opacity .25s;
+    -moz-transition: opacity .25s;
+    -ms-transition: opacity .25s;
+    -o-transition: opacity .25s;
+}
+
+/* 主框架 */
+.lovexhj {
+    position: relative;
+}
+
+/* 首页 */
+.lovexhj1 {
+    height: 800px;
+    overflow: hidden;
+}
+
+/* 首页内容 */
+.lovexhjContent {
+    position: relative;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    box-sizing: border-box;
+}
+
+.lovexhj1Content {
+    position: absolute;
+    box-shadow: 10px 0 30px black;
+    z-index: 2;
+}
+
+.ContentTitle {
+    font-size: var(--titleSize);
+    margin-bottom: 20px;
+}
+
+.ContentSubTitle {
+    font-size: var(--contextSize);
+    margin-bottom: 20px;
+}
+
+.ContentContact {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.ContentContact li {
+    margin-right: 20px;
+    font-size: var(--contextSize);
+}
+
+.ContentContact i {
+    color: black;
+}
+
+.el-tooltip__popper {
+    font-size: 1rem;
+}
+
+.loadMore {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 50px 15px;
+    border: 1px solid black;
+    font-size: 1.3rem;
+}
+
+.loadMore:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 black;
+}
+
+/* 首页背景 */
+.lovexhjBg {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+}
+
+.lovexhj1Bg {
+    right: 0;
+    background: url("../images/bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.lovexhj2Bg {
+    left: 0;
+    background: url("../images/bg2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* 内容 */
+.lovexhj2 {
+    height: 1000px;
+}
+
+.lovexhj2Content {
+    width: 100%;
+}
+
+.lovexhj2Content>div,
+.lovexhj3Content>div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lovexhj2ContentTitle {
+    width: 100%;
+    font-size: var(--titleSize);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.lovexhj2ContentMe {
+    display: flex;
+    justify-content: center;
+    padding: 0 10%;
+    margin-bottom: 30px;
+}
+
+.lovexhj2ContentImg {
+    width: 200px;
+    height: 300px;
+    min-width: 200px;
+    min-height: 300px;
+    overflow: hidden;
+    color: black;
+    border: 10px solid white;
+    box-shadow: rgba(50, 50, 93, 0.35) 0px 13px 27px -5px, rgba(0, 0, 0, 0.4) 0px 8px 16px -8px;
+    margin-right: 5%;
+    transform: rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+}
+
+.lovexhj2ContentImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lovexhj2ContentText {
+    font-size: var(--contextSize);
+}
+
+.lovexhj2ContentTextBox {
+    line-height: 2rem;
+}
+
+.lovexhj2ContentTextBox b {
+    padding: 0 5px;
+}
+
+.lovexhj2ContentTextBox span {
+    padding: 0 1rem;
+}
+
+.lovexhj2ContentTextBox span::after {
+    content: '>';
+}
+
+.lovexhj2ContentText ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.lovexhj2ContentText li {
+    width: 100%;
+    height: 150px;
+    margin: 0 15px;
+    background: white;
+    position: relative;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    box-shadow: rgba(50, 50, 93, 0.35) 0px 13px 27px -5px, rgba(0, 0, 0, 0.4) 0px 8px 16px -8px;
+}
+
+.lovexhj2ContentText li:hover {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 23px 27px -5px, rgba(0, 0, 0, 0.3) 0px 18px 16px -8px;
+}
+
+.lovexhj2ContentText li i {
+    position: absolute;
+    font-size: 5rem;
+    color: rgba(128, 128, 128, .15);
+    bottom: 10px;
+    right: 10px;
+}
+
+.lovexhj2ContentText li span {
+    font-size: 2rem;
+}
+
+.lovexhj2ContentText li p {
+    font-size: var(--contextSize);
+}
+
+.lovexhj2ContentText li p:nth-child(4) {
+    font-size: 1.1rem;
+}
+
+/* 项目介绍 */
+.lovexhj3 {
+    height: auto;
+    background: white;
+    border-radius: 200px 200px 0 0;
+    -webkit-border-radius: 200px 200px 0 0;
+    -moz-border-radius: 200px 200px 0 0;
+    -ms-border-radius: 200px 200px 0 0;
+    -o-border-radius: 200px 200px 0 0;
+}
+
+.lovexhj3Content {
+    width: 100%;
+    height: auto;
+}
+
+.lovexhj3ContentList {
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.lovexhj3ContentBox,
+.lovexhj3ContentBoxTc {
+    width: 300px;
+    height: 400px;
+    background: white;
+    margin-bottom: 50px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lovexhj3ContentBox {
+    box-shadow: rgba(50, 50, 93, 0.35) 0px 13px 27px -5px, rgba(0, 0, 0, 0.4) 0px 8px 16px -8px;
+}
+
+.lovexhj3ContentBoxTc {
+    height: 0 !important;
+}
+
+.lovexhj3ContentBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.lovexhj3ContentBox:hover img {
+    transform: scale(1.5) rotate(5deg);
+    -webkit-transform: scale(1.5) rotate(5deg);
+    -moz-transform: scale(1.5) rotate(5deg);
+    -ms-transform: scale(1.5) rotate(5deg);
+    -o-transform: scale(1.5) rotate(5deg);
+}
+
+.lovexhj3ContentBoxText {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.lovexhj3ContentBox:hover .lovexhj3ContentBoxText {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+}
+
+.lovexhj3ContentTitle {
+    font-size: 3rem;
+}
+
+.lovexhj3ContentText {
+    font-size: var(--contextSize);
+}
+
+.lovexhj3ContentBoxText ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3px 0 10px;
+}
+
+.lovexhj3ContentBoxText li {
+    margin-right: 10px;
+}
+
+.lovexhj3ContentBtn {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 30px 8px;
+    border: 1px solid black;
+    font-size: 1.3rem;
+    color: black;
+    margin-top: 20px;
+}
+
+.lovexhj3ContentBtn:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 black;
+}
+
+.lovexhj3LoadMore {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* 联系我 */
+.lovexhj4 {
+    height: 800px;
+}
+
+.lovexhj4Content {
+    left: 50%;
+    flex-wrap: wrap;
+}
+
+.lovexhj4Bg {
+    left: 0;
+    background: url("../images/bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.lovexhj4ItemTitle {
+    font-size: 2rem;
+}
+
+.lovexhj4ItemContext {
+    font-size: 1.2rem;
+}
+
+.lovexhj4Content li {
+    margin: 20px 0;
+}
+
+/* 项目弹出框 */
+.el-dialog {
+    width: 80%;
+}
+
+.el-dialog__header {
+    padding: 30px 30px 20px;
+}
+
+.el-dialog__title {
+    font-size: 2rem;
+}
+
+.el-dialog__body {
+    font-size: 1.2rem;
+    padding-top: 0;
+}
+
+.el-dialog__body p {
+    padding: 0 10px;
+}
+
+.el-dialog__body h2 {
+    padding-left: 15px;
+    border-left: 4px solid #00a2ff;
+    line-height: 50px;
+    background: #f2f7fb;
+    margin: 10px 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.el-dialog__body .lovexhj3ContentBtn {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.el-dialog__body ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.el-dialog__body ul img {
+    width: 300px;
+    margin: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+}
+
+/* 自适应 */
+@media(max-width:1400px) {
+    .lovexhj2 {
+        height: 1200px;
+    }
+
+    .lovexhj2ContentText ul {
+        flex-wrap: wrap;
+    }
+
+    .lovexhj2ContentText li {
+        width: 46%;
+        margin: 0 0 30px;
+    }
+
+    .lovexhj2ContentMe {
+        padding: 0 5%;
+    }
+}
+
+@media(max-width:1070px) {
+    .lovexhj3 {
+        border-radius: 150px 150px 0 0;
+        -webkit-border-radius: 150px 150px 0 0;
+        -moz-border-radius: 150px 150px 0 0;
+        -ms-border-radius: 150px 150px 0 0;
+        -o-border-radius: 150px 150px 0 0;
+    }
+
+    .lovexhj3ContentList {
+        width: 660px;
+        min-width: 660px;
+    }
+}
+
+@media(max-width: 930px) {
+    * {
+        --titleSize: 2.8rem;
+        --contextSize: 1.2rem;
+    }
+
+    .lovexhj1Content {
+        padding: 40px;
+    }
+
+    .lovexhj2ContentMe {
+        padding: 0;
+    }
+
+    .lovexhj2 {
+        height: 1500px;
+    }
+
+    .lovexhj2ContentMe {
+        flex-wrap: wrap;
+    }
+
+    .lovexhj2ContentImg {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 778px) {
+    .lovexhj3 {
+        border-radius: 100px 100px 0 0;
+        -webkit-border-radius: 100px 100px 0 0;
+        -moz-border-radius: 100px 100px 0 0;
+        -ms-border-radius: 100px 100px 0 0;
+        -o-border-radius: 100px 100px 0 0;
+}
+
+    .lovexhj3ContentList {
+        width: 300px;
+        min-width: 300px;
+    }
+
+    .lovexhj3ContentBoxText {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+}
+}
+
+@media(max-width: 560px) {
+    .lovexhj1 {
+        height: 700px;
+    }
+
+    .lovexhj1Bg {
+        width: 100%;
+        height: 40%;
+        top: 0;
+    }
+
+    .lovexhj1Content {
+        bottom: 0;
+        width: 100%;
+        height: 60%;
+    }
+
+    .loadMore {
+        padding: 5px 30px 10px;
+    }
+
+    .lovexhj2 {
+        height: 1800px;
+    }
+
+    .lovexhj2Content {
+        padding: 80px 40px;
+    }
+
+    .lovexhj2ContentText li {
+        width: 100%;
+    }
+
+    .lovexhj4Content {
+        width: 65%;
+        left: 30%;
+        padding: 20px;
+    }
+
+    .lovexhj4Bg {
+        width: 35%;
+    }
+
+    .el-dialog {
+        width: 90%;
+    }
+
+    .el-dialog__body ul {
+        text-align: center;
+    }
+
+    .el-dialog__body ul img {
+        width: 80%;
+    }
+}
