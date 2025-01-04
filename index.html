@@ -1,62 +1,145 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<meta charset="UTF-8">
-		<title>First anniversary of love</title>
-		<link rel="stylesheet" type="text/css" href="./css/format.css">
-	</head>
 
-	<body style="margin:0px">
-		<audio autoplay loop>
-			<source src="music/music.mp3" type="audio/mpeg">
-			Your browser does not support the audio.
-		</audio>
-		<canvas></canvas>
-		<div id="imgTxt">
-			<span id="Txt"></span> <br />
-			<span id="tmp"></span>
-			<img id="img" src="">
-		</div>
-		<div id="heartTxt">
-			<span id="clickMe">Click!</span>
-			<div id="heart">
-				<button id="button" onclick="play()"></button>
-			</div>
-		</div>
-		<div id="content">
-			<h2 id="together">We have been together</h2>
-			<div id="timer">
-				<b id="d"></b> Days 
-				<b id="h"></b> Hours
-				<b id="m"></b> Minutes
-				<b id="s"></b> Seconds
-			</div>
-		</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 臧恒</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="介绍">
+    <link rel="icon" href="./favicon.ico">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.9.0/viewer.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.1/theme-chalk/index.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/lovexhj.css">
+</head>
 
-    	<div id = "typeDiv">
-        	<span id="txt1"></span> <br />
-        	<span id="txt2"></span>
-    	</div>		
+<body>
+    <div id="lovexhj" v-if="lovexhj" v-cloak>
+        <!-- 首页 -->
+        <div class="lovexhj lovexhj1">
+            <!-- 内容 -->
+            <div class="lovexhjContent lovexhj1Content">
+                <div>
+                    <div class="ContentTitle">
+                        <span>{{lovexhj.index.title}}</span>
+                        <span class="lovexhj1Typet"></span>
+                    </div>
+                    <div class="ContentSubTitle">{{lovexhj.index.subTitle}}</div>
+                    <ul class="ContentContact">
+                        <li v-for="(item, index) in lovexhj.index.contact" :key="index">
+                            <a :href="item.link" target="_blank">
+                                <el-tooltip :content="item.name" placement="bottom" effect="light">
+                                    <i :class="'fa ' + item.icon"></i>
+                                </el-tooltip>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="lovexhj1LoadMore">
+                        <div class="loadMore" @click="scrollGoTo(lovexhj.index.loadMore.class)">
+                            {{lovexhj.index.loadMore.text}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 壁纸 -->
+            <div class="lovexhjBg lovexhj1Bg"></div>
+        </div>
+        <!-- 个人简介 -->
+        <div class="lovexhj lovexhj2">
+            <!-- 内容 -->
+            <div class="lovexhjContent lovexhj2Content">
+                <div>
+                    <p class="lovexhj2ContentTitle">{{lovexhj.about.title}}</p>
+                    <div class="lovexhj2ContentMe">
+                        <div class="lovexhj2ContentImg">
+                            <img :src="lovexhj.about.laozi.img" :alt="lovexhj.about.laozi.img">
+                        </div>
+                        <div class="lovexhj2ContentText">
+                            <div v-html="lovexhj.about.laozi.content" class="lovexhj2ContentTextBox"></div>
+                            <ul>
+                                <li v-for="(item, index) in lovexhj.about.ability"
+                                    :style="'border-top: 5px solid ' + item.color">
+                                    <i :class="'fa ' + item.icon "></i>
+                                    <span :style="'color:' + item.color">{{item.bfb}}</span>
+                                    <p>{{item.title}}</p>
+                                    <p>{{item.subTitle}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lovexhj2LoadMore">
+                        <div class="loadMore" @click="scrollGoTo(lovexhj.about.loadMore.class)">
+                            {{lovexhj.about.loadMore.text}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 项目介绍 -->
+        <div class="lovexhj lovexhj3">
+            <div class="lovexhjContent lovexhj3Content">
+                <div>
+                    <p class="lovexhj2ContentTitle">{{lovexhj.project.title}}</p>
+                    <div class="lovexhj3ContentList">
+                        <div class="lovexhj3ContentBox" v-for="(item, index) in lovexhj.project.list" :key="index">
+                            <img :src="item.img" :alt="item.img">
+                            <div class="lovexhj3ContentBoxText">
+                                <div>
+                                    <p class="lovexhj3ContentTitle">{{item.name}}</p>
+                                    <ul>
+                                        <li v-for="(nb, index) in item.nb" :key="index">
+                                            {{nb}}
+                                            <span v-if="index != item.nb.length - 1">+</span>
+                                        </li>
+                                    </ul>
+                                    <p class="lovexhj3ContentText">{{item.text}}</p>
+                                    <div class="lovexhj3ContentBtn" @click="showProject(index)">
+                                        {{lovexhj.project.listLoadMore}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lovexhj3ContentBoxTc"></div>
+                        <div class="lovexhj3ContentBoxTc"></div>
+                    </div>
+                    <div class="lovexhj3LoadMore">
+                        <div class="loadMore" @click="scrollGoTo(lovexhj.project.loadMore.class)">
+                            {{lovexhj.project.loadMore.text}}</div>
+                    </div>
+                </div>
+            </div>
+            <el-dialog :title="lovexhj.project.list[projectIndex].name" :visible.sync="projectDialog"
+                append-to-body="true" modal-append-to-body="true">
+                <a :href="lovexhj.project.list[projectIndex].url" class="lovexhj3ContentBtn" target="_blank">点我查看</a>
+                <div v-html="lovexhj.project.list[projectIndex].content"></div>
+            </el-dialog>
+        </div>
+        <!-- 联系我 -->
+        <div class="lovexhj lovexhj4">
+            <!-- 壁纸 -->
+            <div class="lovexhjBg lovexhj4Bg"></div>
+            <!-- 内容 -->
+            <div class="lovexhjContent lovexhj4Content">
+                <div>
+                    <p class="lovexhj2ContentTitle">{{lovexhj.contact.title}}</p>
+                    <ul>
+                        <li v-for="(item, index) in lovexhj.contact.list">
+                            <p class="lovexhj4ItemTitle">{{item.name}}</p>
+                            <p class="lovexhj4ItemContext">{{item.context}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		<script >
-			var ok = 0;
-			var flag = 1;
-			var myImage = document.getElementById("img");
-			var myTxt = document.getElementById("Txt");
-			var imageArray = ["pic/pic1a.png", "pic/pic2a.png", "pic/pic3a.png", "pic/pic4a.png", "pic/pic5a.png", "pic/pic6a.png",
-			"pic/pic7a.png", "pic/pic8a.png", "pic/pic9a.png", "pic/pic10a.png"];
-			var imageIndex = 0;
-			var txtArray = ["你好哇，小可爱~", "这是你第一次送我的礼物，好喜欢，嘿嘿(･∀･)", "陪笨蛋老婆玩游戏(๑¯ω¯๑)",
-			 "嘻嘻，你认真的样子真好看(๑◔‿◔๑)", "后来我们一起去了好多地方~", "一起去爬山~o(≧v≦)o", "一起看夜晚的风景٩(๑òωó๑)۶",
-			 "超级喜欢老婆送礼物!!!", "去给老婆买花❀❀~", "老婆老婆，我爱你~"];
-			 var len = imageArray.length;
-			var t = 0;
-		</script>
-		
-		<script type="text/javascript" src="./js/stars.js"></script>
-		<script type="text/javascript" src="./js/typeWriter.js"></script>
-		<script type="text/javascript" src="./js/date.js"></script>
-		<script type="text/javascript" src="./js/playImg.js"></script>
-	</body>
+    <!-- js 引用 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.9.0/viewer.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.1/index.min.js"></script>
+    <script src="./js/lovexhj.js" type="module"></script>
+</body>
+
 </html>
