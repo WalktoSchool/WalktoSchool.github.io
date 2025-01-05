@@ -157,6 +157,7 @@ export default {
                 <h2>项目预览</h2>
                 <ul>
                     <li><img src="./images/zhong/3.png"  width="300" height="152"></li>
+                    <li><img src="./images/zhong/4.png"  width="300" height="152"></li>
                     <li style="margin-top: 10px; margin-left: 9px;">
                         <video width="300" height="152" controls preload="metadata"> 
                             <source src="./video/zhong.mp4" type="video/mp4">
@@ -164,10 +165,9 @@ export default {
                     </li>
                 </ul>
                 <h2>项目职责</h2>
-                <p>1、参与原型图设计与 UI 设计，辅助市场调研；</p>
-                <p>2、负责数据库设计，模块设计；</p>
-                <p>3、客户端与服务端的编程开发；</p>
-                <p>4、修复测试人员发现的BUG；</p>`,
+                <p>1、硬件开发；</p>
+                <p>2、软件开发；</p>
+                <p>3、测试；</p>`,
             },
             {
                 name: "蓝牙遥控车",
