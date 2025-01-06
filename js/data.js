@@ -66,8 +66,8 @@ export default {
                 <p>3、控制功能：网页端按键点击后，通过js将对应信息传递至CGI进程，CGI进程将数据封装成结构体，通过消息队列发送至控制进程，控制进程从消息队列中读取到不同信息执行不同的控制命令；</p>
                 <h2>项目预览</h2>
                 <ul>
-                    <li><img src="./images/anfang/fengmian.png"></li>
-                    
+                    <li><img src="./images/anfang/fengmian.png" width="300" height="152"></li>
+                    <li><img src="./images/anfang/kaifaban.jpg" width="300" height="152"></li>
                     <li style="margin-top: 10px;">
                         <video width="300" height="152" controls  preload="metadata">
                             <source src="./video/anfang.mp4" type="video/mp4">
@@ -158,6 +158,7 @@ export default {
                 <ul>
                     <li><img src="./images/zhong/3.png"  width="300" height="152"></li>
                     <li><img src="./images/zhong/4.png"  width="300" height="152"></li>
+                    <li><img src="./images/zhong/5.jpg"  width="300" height="152"></li>
                     <li style="margin-top: 10px; margin-left: 9px;">
                         <video width="300" height="152" controls preload="metadata"> 
                             <source src="./video/zhong.mp4" type="video/mp4">
